@@ -1,6 +1,6 @@
 package caster
 
-func DecodeInteger(buffer []byte, offset int, optional bool) (int, int, bool) {
+func DecodeInt(buffer []byte, offset int, optional bool) (int, int, bool) {
 	value := 0
 
 	if buffer[offset] == STOP_BIT_POSITION {

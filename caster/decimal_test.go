@@ -34,7 +34,7 @@ func TestDecodeDecimalSample3(t *testing.T) {
 	buffer := []byte{0b10000011, 0b00111001, 0b01000101, 0b10100011}
 	value, offset, nullable := DecodeDecimal(buffer, 0, true)
 
-	Equal(t, float64(9427550), value, "value")
+	Equal(t, 94275500.0, value, "value")
 	Equal(t, 4, offset, "offset")
 	Equal(t, false, nullable, "nullable")
 }
@@ -70,4 +70,24 @@ func TestDecodeDecimalSample6(t *testing.T) {
 	Equal(t, -8.193, value, "value")
 	Equal(t, 4, offset, "offset")
 	Equal(t, false, nullable, "nullable")
+}
+
+// Custom samples
+
+func TestDecodeDecimalSample7(t *testing.T) {
+	buffer := []byte{0b10000010, 0b00111001, 0b11100001}
+	value, offset, nullable := DecodeDecimal(buffer, 0, true)
+
+	Equal(t, 73930.0, value, "value")
+	Equal(t, 3, offset, "offset")
+	Equal(t, false, nullable, "nullable")
+}
+
+func TestDecodeDecimalSample8(t *testing.T) {
+	buffer := []byte{0b10000000}
+	value, offset, nullable := DecodeDecimal(buffer, 0, true)
+
+	Equal(t, 0.0, value, "value")
+	Equal(t, 1, offset, "offset")
+	Equal(t, true, nullable, "nullable")
 }
