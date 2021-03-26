@@ -2,7 +2,6 @@
 
 - Generator by templates.xml
 
-  - read xml
   - by xml build struct and decoder
   - add annotation and ID
 

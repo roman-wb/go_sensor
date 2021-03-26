@@ -7,7 +7,7 @@ import (
 func DecodeDecimal(buffer []byte, offset int, optional bool) (float64, int, bool) {
 	exponent, offset, nullable := DecodeInt(buffer, offset, optional)
 
-	// optional
+	// only optional
 	if nullable {
 		return 0, offset, true
 	}
